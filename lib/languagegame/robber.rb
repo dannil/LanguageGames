@@ -4,6 +4,9 @@ class Robber
   @@upper_consonants = "BCDFGHJKLMNPQRSTVWXZ"
   
   def self.to_robber(phrase)
+    if phrase == nil
+      return nil
+    end
     result = String.new
     phrase.each_char do |s|
       if @@lower_consonants.include? s
@@ -18,6 +21,9 @@ class Robber
   end
   
   def self.from_robber(phrase)
+    if phrase == nil
+      return nil
+    end
     result = String.new
     @@lower_consonants.each_char do |s|
       phrase.gsub! s + "o" + s, s
